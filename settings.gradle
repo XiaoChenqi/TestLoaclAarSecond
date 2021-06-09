@@ -1,0 +1,3 @@
+rootProject.name='TestLoaclAarSecond'
+include ':app'
+include ':localone'
