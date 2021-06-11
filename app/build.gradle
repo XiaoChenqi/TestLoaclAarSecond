@@ -23,6 +23,12 @@ android {
 
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -33,7 +39,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //api 'com.github.XiaoChenqi:TestLoaclAarSecond:1'
-    //api 'com.github.XiaoChenqi.TestLoaclAarSecond:localone:1.4'
+//    api 'com.github.XiaoChenqi.TestLoaclAarSecond:localone:1.5'
+    //implementation project(':localone')
+    //api(name: 'localone-debug', ext: 'aar'){transitive = true}
+    //embed(name: 'localone-debug', ext: 'aar'){ transitive = true}
 
-
+    api group: 'com.example.localone', name: 'localone-debug', version: '1.0.0', transitive: true
 }

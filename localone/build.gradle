@@ -33,5 +33,52 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //util
-    api 'com.blankj:utilcode:1.23.7'
+    //api 'com.blankj:utilcode:1.23.7'
+    api ('com.blankj:utilcode:1.23.7'){transitive = true}
 }
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            pom.groupId = "com.crypt.lord.feature.news"
+//            pom.artifactId = "newsclient-release"
+//            pom.version = "1.0.0"
+//            repository(url: "file://localhost/" + "Users/hepengcheng/Library/Android/sdk" + "/extras/android/m2repository/");
+//        }
+//    }
+//}
+uploadArchives {
+    configuration = configurations.archives
+    repositories {
+        mavenDeployer {
+            repository(url: 'http://192.168.1.146:8080/nexus/content/repositories/com.facility.wireless/') {
+                authentication(userName: 'admin', password: 'admin123')
+            }
+            pom.project {
+                version '1.0.0'
+                artifactId 'localone-debug'
+                groupId 'com.example.localone'
+                packaging 'aar'
+                description 'init version 1.0.0'
+            }
+        }
+    }
+}
+
+//uploadArchives {
+//    configuration = configurations.archives
+//    repositories {
+//        mavenDeployer {
+//            repository(url: 'http://192.168.1.146:8080/nexus/content/repositories/com.facility.wireless/') {
+//                authentication(userName: 'admin', password: 'admin123')
+//            }
+//            pom.project {
+//                version '1.0.0'
+//                artifactId 'basicres'
+//                groupId 'com.facility.wireless'
+//                packaging 'aar'
+//                description 'init version 1.0.0'
+//            }
+//        }
+//    }
+//}

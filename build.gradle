@@ -25,6 +25,9 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven {
+            url "http://192.168.1.146:8080/nexus/content/repositories/com.facility.wireless/"
+        }
 
     }
 }
